@@ -11,7 +11,7 @@ export const coffee = Machine({
         empty: {
           on: {
             FILL: 'full',
-            TURN_ON: 'running_empty',
+            GRINDER_ON: 'running_empty',
           },
         },
         running_empty: {
@@ -21,7 +21,7 @@ export const coffee = Machine({
         },
         full: {
           on: {
-            TURN_ON: 'running',
+            GRINDER_ON: 'running',
           },
         },
         running: {
@@ -32,12 +32,36 @@ export const coffee = Machine({
         ground: {
           on: {
             EMPTY: 'empty',
-            TURN_ON: 'running_ground',
+            GRINDER_ON: 'running_ground',
           },
         },
         running_ground: {
           after: {
             2000: 'ground',
+          },
+        },
+      },
+    },
+    machine: {
+      id: 'machine',
+      initial: 'off',
+      states: {
+        off: {
+          on: {
+            MACHINE_ON: 'heating',
+          },
+        },
+        heating: {
+          on: {
+            MACHINE_OFF: 'off',
+          },
+          after: {
+            10000: 'hot',
+          },
+        },
+        hot: {
+          on: {
+            MACHINE_OFF: 'off',
           },
         },
       },
