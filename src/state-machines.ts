@@ -6,34 +6,18 @@ export const grinder = Machine({
   states: {
     empty: {
       on: {
-        FILL: 'full',
-        TURN_ON: 'running_empty',
-      },
-    },
-    running_empty: {
-      after: {
-        2000: 'empty',
-      },
+        GRINDER_FILL: 'full',
+        GRINDER_RUN: 'grinding',
+      }
     },
     full: {
       on: {
-        TURN_ON: 'running',
+        GRINDER_RUN: 'grinding',
       },
     },
-    running: {
+    grinding: {
       after: {
-        2000: 'ground',
-      },
-    },
-    ground: {
-      on: {
-        EMPTY: 'empty',
-        TURN_ON: 'running_ground',
-      },
-    },
-    running_ground: {
-      after: {
-        2000: 'ground',
+        2000: 'empty',
       },
     },
   },
