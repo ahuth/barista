@@ -1,3 +1,10 @@
 export default function App() {
-  return <h1>hello world</h1>;
+  return (
+    <main>
+      <h1>Barista</h1>
+      <p>The grinder sits silently. Patiently.</p>
+      <button>Put beans in the hopper</button>
+      <button>Turn it on.</button>
+    </main>
+  );
 }
