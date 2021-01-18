@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useMachine } from '@xstate/react';
 import { grinderMachine } from '../state-machines';
 
-type SectionFunc = (enabled: boolean) => React.ReactNode;
+type SectionFunc = (active: boolean) => React.ReactNode;
 
 export default function App() {
   const [current, send] = useMachine(grinderMachine);
@@ -13,11 +13,11 @@ export default function App() {
 
     switch (true) {
       case current.matches('empty'): {
-        next = (enabled) => (
+        next = (active) => (
           <section>
             <p>The grinder sits silently. Patiently.</p>
-            <button disabled={!enabled} onClick={() => send('FILL')}>Put beans in the hopper</button>
-            <button disabled={!enabled} onClick={() => send('ACTIVATE')}>Turn it on.</button>
+            <button disabled={!active} onClick={() => send('FILL')}>Put beans in the hopper</button>
+            <button disabled={!active} onClick={() => send('ACTIVATE')}>Turn it on.</button>
           </section>
         );
         break;
@@ -31,10 +31,10 @@ export default function App() {
         );
         break;
       case current.matches('full'):
-        next = (enabled) => (
+        next = (active) => (
           <section>
             <p>Now, finally, you're ready to grind.</p>
-            <button disabled={!enabled} onClick={() => send('ACTIVATE')}>Turn it on.</button>
+            <button disabled={!active} onClick={() => send('ACTIVATE')}>Turn it on.</button>
           </section>
         );
         break;
@@ -55,8 +55,8 @@ export default function App() {
     <main>
       <h1>Barista</h1>
       {items.map((sectionFunc, index) => {
-        const enabled = index === items.length - 1;
-        return sectionFunc(enabled);
+        const active = index === items.length - 1;
+        return sectionFunc(active);
       })}
     </main>
   );
