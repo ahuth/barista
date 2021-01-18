@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/barista/static/css/main.4f7ff956.chunk.css",
-    "main.js": "/barista/static/js/main.dfe7ef85.chunk.js",
-    "main.js.map": "/barista/static/js/main.dfe7ef85.chunk.js.map",
+    "main.js": "/barista/static/js/main.9d3ab657.chunk.js",
+    "main.js.map": "/barista/static/js/main.9d3ab657.chunk.js.map",
     "runtime-main.js": "/barista/static/js/runtime-main.4f31e2e4.js",
     "runtime-main.js.map": "/barista/static/js/runtime-main.4f31e2e4.js.map",
     "static/js/2.936109e6.chunk.js": "/barista/static/js/2.936109e6.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.4f31e2e4.js",
     "static/js/2.936109e6.chunk.js",
     "static/css/main.4f7ff956.chunk.css",
-    "static/js/main.dfe7ef85.chunk.js"
+    "static/js/main.9d3ab657.chunk.js"
   ]
 }
