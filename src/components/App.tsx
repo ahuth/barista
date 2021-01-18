@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useMachine } from '@xstate/react';
 import { grinderMachine } from '../state-machines';
+import ScreenReaderOnly from './ScreenReaderOnly';
 
 type SectionFunc = (active: boolean) => React.ReactNode;
 
@@ -16,6 +17,7 @@ export default function App() {
         next = (active) => (
           <section>
             <p>The grinder sits silently. Patiently.</p>
+            {active && <ScreenReaderOnly>2 actions available:</ScreenReaderOnly>}
             <button disabled={!active} onClick={() => send('FILL')}>Put beans in the hopper</button>
             <button disabled={!active} onClick={() => send('ACTIVATE')}>Turn it on.</button>
           </section>
@@ -34,6 +36,7 @@ export default function App() {
         next = (active) => (
           <section>
             <p>Now, finally, you're ready to grind.</p>
+            {active && <ScreenReaderOnly>1 action available:</ScreenReaderOnly>}
             <button disabled={!active} onClick={() => send('ACTIVATE')}>Turn it on.</button>
           </section>
         );
