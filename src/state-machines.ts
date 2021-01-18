@@ -1,21 +1,41 @@
 import { Machine } from 'xstate';
 
-export const grinder = Machine({
+interface GrinderContext {}
+
+interface GrinderState {
+  states: {
+    empty: {},
+    running_empty: {},
+    full: {},
+    running_full: {},
+  },
+}
+
+type GrinderEvent =
+  | { type: 'ACTIVATE' }
+  | { type: 'FILL' }
+
+export const grinderMachine = Machine<GrinderContext, GrinderState, GrinderEvent>({
   id: 'grinder',
   initial: 'empty',
   states: {
     empty: {
       on: {
-        GRINDER_FILL: 'full',
-        GRINDER_RUN: 'grinding',
-      }
+        ACTIVATE: 'running_empty',
+        FILL: 'full',
+      },
+    },
+    running_empty: {
+      after: {
+        2000: 'empty',
+      },
     },
     full: {
       on: {
-        GRINDER_RUN: 'grinding',
+        ACTIVATE: 'running_full',
       },
     },
-    grinding: {
+    running_full: {
       after: {
         2000: 'empty',
       },
