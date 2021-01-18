@@ -16,7 +16,7 @@ export default function App() {
     switch (true) {
       case current.matches('empty'): {
         next = (id, active) => (
-          <section key={id} ref={active ? latestSectionRef : undefined} tabIndex={active ? -1 : undefined}>
+          <section key={id} ref={active ? latestSectionRef : undefined}>
             <p>The grinder sits silently. Patiently.</p>
             {active && <ScreenReaderOnly>2 actions available:</ScreenReaderOnly>}
             <button disabled={!active} onClick={() => send('FILL')}>Put beans in the hopper</button>
@@ -27,7 +27,7 @@ export default function App() {
       }
       case current.matches('running_empty'):
         next = (id, active) => (
-          <section key={id} ref={active ? latestSectionRef : undefined} tabIndex={active ? -1 : undefined}>
+          <section key={id} ref={active ? latestSectionRef : undefined}>
             <p>For some reason you ran the grinder despite the fact that there are no beans in it...</p>
             <p>Bzzzzzzzzzzzzzzzzz...</p>
           </section>
@@ -35,7 +35,7 @@ export default function App() {
         break;
       case current.matches('full'):
         next = (id, active) => (
-          <section key={id} ref={active ? latestSectionRef : undefined} tabIndex={active ? -1 : undefined}>
+          <section key={id} ref={active ? latestSectionRef : undefined}>
             <p>Now, finally, you're ready to grind.</p>
             {active && <ScreenReaderOnly>1 action available:</ScreenReaderOnly>}
             <button disabled={!active} onClick={() => send('ACTIVATE')}>Turn it on.</button>
@@ -44,7 +44,7 @@ export default function App() {
         break;
       case current.matches('running_full'):
         next = (id, active) => (
-          <section key={id} ref={active ? latestSectionRef : undefined} tabIndex={active ? -1 : undefined}>
+          <section key={id} ref={active ? latestSectionRef : undefined}>
             <p>The machine works diligently, grinding the beans.</p>
             <p>Bzzzzzzzzzzzzzzzzz...</p>
           </section>
@@ -56,7 +56,7 @@ export default function App() {
 
     const timeoutId = setTimeout(() => {
       if (latestSectionRef.current) {
-        latestSectionRef.current.focus();
+        latestSectionRef.current.scrollIntoView();
       }
     }, 0);
 
