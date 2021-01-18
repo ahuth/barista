@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/barista/static/css/main.4f7ff956.chunk.css",
+    "main.js": "/barista/static/js/main.dfe7ef85.chunk.js",
+    "main.js.map": "/barista/static/js/main.dfe7ef85.chunk.js.map",
+    "runtime-main.js": "/barista/static/js/runtime-main.4f31e2e4.js",
+    "runtime-main.js.map": "/barista/static/js/runtime-main.4f31e2e4.js.map",
+    "static/js/2.936109e6.chunk.js": "/barista/static/js/2.936109e6.chunk.js",
+    "static/js/2.936109e6.chunk.js.map": "/barista/static/js/2.936109e6.chunk.js.map",
+    "index.html": "/barista/index.html",
+    "static/css/main.4f7ff956.chunk.css.map": "/barista/static/css/main.4f7ff956.chunk.css.map",
+    "static/js/2.936109e6.chunk.js.LICENSE.txt": "/barista/static/js/2.936109e6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4f31e2e4.js",
+    "static/js/2.936109e6.chunk.js",
+    "static/css/main.4f7ff956.chunk.css",
+    "static/js/main.dfe7ef85.chunk.js"
+  ]
+}
