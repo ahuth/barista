@@ -14,6 +14,7 @@ interface GrinderState {
 type GrinderEvent =
   | { type: 'ACTIVATE' }
   | { type: 'FILL' }
+  | { type: 'INIT' }
 
 export const grinderMachine = Machine<GrinderContext, GrinderState, GrinderEvent>({
   id: 'grinder',
