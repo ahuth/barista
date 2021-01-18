@@ -48,14 +48,14 @@ export default function App() {
         break;
     }
 
-    setItems((prev) => [next, ...prev]);
+    setItems((prev) => prev.concat(next ? [next] : []));
   }, [current, send]);
 
   return (
     <main>
       <h1>Barista</h1>
       {items.map((sectionFunc, index) => {
-        const enabled = index === 0;
+        const enabled = index === items.length - 1;
         return sectionFunc(enabled);
       })}
     </main>
