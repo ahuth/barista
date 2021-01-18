@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useMachine } from '@xstate/react';
-import { grinderMachine } from '../state-machines';
+import { grinderMachine } from '../state-machines/grinder';
 import ScreenReaderOnly from './ScreenReaderOnly';
 
 type SectionFunc = (active: boolean) => React.ReactNode;
