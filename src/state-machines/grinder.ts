@@ -15,7 +15,7 @@ type GrinderEvent =
   | { type: 'ACTIVATE' }
   | { type: 'FILL' }
 
-export const grinderMachine = Machine<GrinderContext, GrinderState, GrinderEvent>({
+const grinderMachine = Machine<GrinderContext, GrinderState, GrinderEvent>({
   id: 'grinder',
   initial: 'empty',
   states: {
@@ -42,3 +42,5 @@ export const grinderMachine = Machine<GrinderContext, GrinderState, GrinderEvent
     },
   },
 });
+
+export default grinderMachine;
